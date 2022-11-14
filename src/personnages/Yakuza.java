@@ -7,7 +7,6 @@ public class Yakuza extends Humain {
 	public Yakuza(String nom, String boissonFav, int argent, String clan) {
 		super(nom, boissonFav, argent);
 		this.clan = clan;
-		this.rep = rep;
 	}
 	
 	public int getRep() {
@@ -15,24 +14,24 @@ public class Yakuza extends Humain {
 	}
 	
 	public void extorquer(Commercant victime) {
-		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par lÃ  ?");
-		parler(victime.getNom() + ", si tu tiens Ã  la vie donne moi ta bourse !");
+		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là  ?");
+		parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
 		int argent1 = argent;
 		gagnerArgent(victime.seFaireExtorquer());
-		parler ("Jâ€™ai piquÃ© les " + (argent - argent1) + " sous de Marco, ce qui me fait " + argent + " sous dans ma poche. Hi ! Hi !");
+		parler ("J'ai piqué les " + (argent - argent1) + " sous de Marco, ce qui me fait " + argent + " sous dans ma poche. Hi ! Hi !");
 		rep += 1;
 	}
 	
 	public int perdre() {
 		int argentPerdu = argent;
-		parler("Jâ€™ai perdu mon duel et mes " + argentPerdu + " sous, snif... J'ai dÃ©shonorÃ© le clan de " + clan + ".");
+		parler("J'ai perdu mon duel et mes " + argentPerdu + " sous, snif... J'ai déshonoré le clan de " + clan + ".");
 		rep -= 1;
 		argent = 0;
 		return argentPerdu;
 	}
 	
 	public void gagner(int gain) {
-		parler("Ce ronin pensait vraiment battre " + getNom() + " du clan de " + clan + " ? Je l'ai dÃ©pouillÃ© de ses " + gain + " sous.");
+		parler("Ce ronin pensait vraiment battre " + getNom() + " du clan de " + clan + " ? Je l'ai dépouillé de ses " + gain + " sous.");
 		gagnerArgent(gain);
 	}
 	

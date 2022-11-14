@@ -4,6 +4,10 @@ public class Humain {
 	private String nom;
 	private String boissonFav;
 	protected int argent;
+	private int nbConnaissance = 0;
+	private int nbConnaissanceMax = 30;
+	private String[] memoire = new String[nbConnaissanceMax];
+
 	
 	public String getNom() {
 		return nom;
@@ -31,7 +35,7 @@ public class Humain {
 	}
 	
 	public void direBonjour() {
-		parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonFav);
+		parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonFav + ".");
 	}
 	
 	public void boire() {
@@ -47,4 +51,30 @@ public class Humain {
 		}
 	}
 	
+	public void memoriser(Humain humain){
+		if (nbConnaissance < nbConnaissanceMax -1) {
+			memoire[nbConnaissance] = nom;
+			nbConnaissance +=1;
+		} else {
+			for (int i = 0; i < nbConnaissance; i++) {
+				memoire[i] = memoire[i+1];
+				memoire[nbConnaissance] = nom;
+			}
+		}
+	}
+	
+	public void listerConnaissance() {
+		
+	}
+	
+	public void faireConnaisanceAvec(Humain autreHumain) {
+		direBonjour();
+		memoriser(autreHumain);
+		autreHumain.repondre(this);
+	}
+	
+	public void repondre(Humain humain) {
+		direBonjour();
+		memoriser(humain);
+	}
 }
