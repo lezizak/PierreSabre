@@ -1,15 +1,17 @@
 package personnages;
 
+import java.util.Iterator;
+
 public class Humain {
-	private String nom;
+	protected String nom;
 	private String boissonFav;
 	protected int argent;
-	private int nbConnaissance = 0;
+	protected int nbConnaissance = 0;
 	private int nbConnaissanceMax = 30;
-	private String[] memoire = new String[nbConnaissanceMax];
+	protected Humain[] memoire = new Humain[nbConnaissanceMax];
 
 	
-	public String getNom() {
+	protected String getNom() {
 		return nom;
 	}
 	public int getArgent() {
@@ -53,18 +55,22 @@ public class Humain {
 	
 	public void memoriser(Humain humain){
 		if (nbConnaissance < nbConnaissanceMax -1) {
-			memoire[nbConnaissance] = nom;
+			memoire[nbConnaissance] = humain;
 			nbConnaissance +=1;
 		} else {
 			for (int i = 0; i < nbConnaissance; i++) {
 				memoire[i] = memoire[i+1];
-				memoire[nbConnaissance] = nom;
+				memoire[nbConnaissance] = humain;
 			}
 		}
 	}
 	
 	public void listerConnaissance() {
-		
+		String listeMemoire = "";
+		for (int i = 0; i < nbConnaissance; i++) {
+			listeMemoire += memoire[i].getNom() + ", ";
+		}
+		parler ("Je connais beaucoup de monde dont : " + listeMemoire);
 	}
 	
 	public void faireConnaisanceAvec(Humain autreHumain) {
