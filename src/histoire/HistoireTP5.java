@@ -1,5 +1,6 @@
 package histoire;
 import personnages.Commercant;
+import personnages.GrandMere;
 import personnages.Humain;
 import personnages.Ronin;
 import personnages.Samourai;
@@ -33,15 +34,28 @@ public class HistoireTP5 {
 		//akimoto.boire("thé");
 		
 		Traitre masako = new Traitre("Miyamoto", "Masako", "whisky", 100);
-		masako.faireLeGentil();
-		masako.ranconner(kumi);
-		masako.ranconner(chonin);
-		masako.ranconner(marco);
-		akimoto.faireConnaisanceAvec(masako);
-		masako.ranconner(null);
-		masako.faireConnaisanceAvec(yaku);
-		masako.faireLeGentil();
-		masako.faireConnaisanceAvec(roro);
+		//masako.faireLeGentil();
+		//masako.ranconner(kumi);
+		//masako.ranconner(chonin);
+		//masako.ranconner(marco);
+		//akimoto.faireConnaisanceAvec(masako);
+		//masako.ranconner(null);
+		//masako.faireConnaisanceAvec(yaku);
+		//masako.faireLeGentil();
+		//masako.faireConnaisanceAvec(roro);
+		
+		//Samourai akira = new Traitre("Miyamoto", "Akira", "whisky", 50);
+		//Ronin hiro = new Traitre("Miyamoto", "Hiro", "saké", 20);
+		//Humain nori = new Traitre("Miyamoto", "Nori", "whisky", 70);
+		
+		GrandMere grandMere = new GrandMere("Grand-Mère", 10);
+		grandMere.faireConnaisanceAvec(akimoto);
+		grandMere.faireConnaisanceAvec(yaku);
+		grandMere.faireConnaisanceAvec(masako);
+		grandMere.faireConnaisanceAvec(kumi);
+		grandMere.faireConnaisanceAvec(marco);
+		grandMere.faireConnaisanceAvec(chonin);
+		grandMere.ragoter();
 		
 	}
 }

@@ -54,7 +54,7 @@ public class Humain {
 	}
 	
 	public void memoriser(Humain humain){
-		if (nbConnaissance < nbConnaissanceMax -1) {
+		if (nbConnaissance < nbConnaissanceMax) {
 			memoire[nbConnaissance] = humain;
 			nbConnaissance +=1;
 		} else {
@@ -75,8 +75,8 @@ public class Humain {
 	
 	public void faireConnaisanceAvec(Humain autreHumain) {
 		direBonjour();
-		memoriser(autreHumain);
 		autreHumain.repondre(this);
+		memoriser(autreHumain);
 	}
 	
 	public void repondre(Humain humain) {
